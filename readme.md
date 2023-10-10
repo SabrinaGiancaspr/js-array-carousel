@@ -16,6 +16,10 @@
     -assegnare valore variabile 
     -aprire parentesi quadre e inserire le 5 img
 
+-creare variabile per sapere img attiva
+  - assegnare variabile active
+  -partendo da zero let active = 0
+
   -creare ciclo for che concatena un template literal
   -img nascoste
     - la prima avrà una classe specifica per essere visualizzata 
