@@ -24,6 +24,10 @@ console.log(images)
 // -creare variabile per sapere img attiva
 const imgActive = 0//- assegnare variabile attiva //-partendo da zero let active = 0
 
+// DOM
+const conatinerDomElement = document.querySelector('.carousel-contaier'); 
+const buttonNextDomElement = document.querySelector('.next-button');
+const buttonPrevDomElement = document.querySelector('prev-button');
 
 
 //-creare ciclo for che concatena un template literal
