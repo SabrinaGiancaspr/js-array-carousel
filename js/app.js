@@ -19,7 +19,6 @@ const images = [  //-creare variabile//-assegnare valore variabile
   "../img/04.webp",
   "../img/05.webp"
 ]
-console.log(images)
 
 // -creare variabile per sapere img attiva
 const imgActive = 0//- assegnare variabile attiva //-partendo da zero let active = 0
@@ -29,8 +28,13 @@ const conatinerDomElement = document.querySelector('.carousel-contaier');
 const buttonNextDomElement = document.querySelector('.next-button');
 const buttonPrevDomElement = document.querySelector('prev-button');
 
-
+console.log(images.length)
 //-creare ciclo for che concatena un template literal
+for (let i = 0; i < images.length; i++){
+  // console.log(i)
+  const currentImg = images [i]
+  console.log(currentImg)
+}
 //-img nascoste
 //-la prima avrà una classe specifica per essere visualizzata
 
