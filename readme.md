@@ -8,6 +8,7 @@
 #inizializazzione 
 -creare html 
   -container con img al centro
+  -creare bottoni 
 
 -rimuovere markup statico e inserire su js 
   -fare un array con le 5 img
