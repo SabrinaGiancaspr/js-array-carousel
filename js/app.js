@@ -72,8 +72,8 @@ buttonPrevDomElement.addEventListener('click', function(){ //qui al contrario
   console.log('click prev')
   itemDOMElements[imgActive].classList.remove('active'); //click bottoni prima rimuovo la classe attiva alla img
   imgActive--; //decrementare per selezionare l'img precedente
-  if(imgActive < 0){ 
-    imgActive = images.length -1 
+  if(imgActive < 0){ //Questa è una condizione che verifica se il valore della variabile è minore di zero
+    imgActive = images.length -1 //se l'utente continua a premere il pulsante "precedente" quando si è già visualizzata la prima immagine, la variabile imgActive tornerà a puntare all'ultima immagine dell'array, consentendo una navigazione circolare all'indietro
   }
   itemDOMElements[imgActive].classList.add('active');
 })
