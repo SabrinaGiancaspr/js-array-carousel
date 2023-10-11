@@ -38,7 +38,7 @@ for (let i = 0; i < images.length; i++) {
   `
   console.log(htmlString);
 
-   containerDomElement.innerHTML += htmlString; // aggiungo contenuto al mio inner html
+  containerDomElement.innerHTML += htmlString; // aggiungo contenuto al mio inner html
 }
 
 //assegno variabile per le img e le riprendo dal DOM  
@@ -57,23 +57,23 @@ currentPic.classList.add('active')
 const buttonNextDomElement = document.querySelector('.next-button');
 const buttonPrevDomElement = document.querySelector('.prev-button');
 
-//click bottoni prima rimuovo la classe attiva alla img
-buttonNextDomElement.addEventListener('click', function(){
+//click bottoni 
+buttonNextDomElement.addEventListener('click', function () {
   console.log('click next')
-  itemDOMElements[imgActive].classList.remove('active');
+  itemDOMElements[imgActive].classList.remove('active');  // prima rimuovo la classe attiva alla img
   imgActive++; //incremento per selezionare l'img successiva
-  if(imgActive === images.length){ //la mia img attiva è uguale alla lunghezza del mio array
+  if (imgActive === images.length) { //la mia img attiva è uguale alla lunghezza del mio array
     imgActive = 0 //img 1 + 1
   }
   itemDOMElements[imgActive].classList.add('active'); //aggiungo all'altra img la classe active
 })
 
-buttonPrevDomElement.addEventListener('click', function(){ //qui al contrario 
+buttonPrevDomElement.addEventListener('click', function () { //qui al contrario 
   console.log('click prev')
   itemDOMElements[imgActive].classList.remove('active'); //click bottoni prima rimuovo la classe attiva alla img
   imgActive--; //decrementare per selezionare l'img precedente
-  if(imgActive < 0){ //Questa è una condizione che verifica se il valore della variabile è minore di zero
-    imgActive = images.length -1 //se l'utente continua a premere il pulsante "precedente" quando si è già visualizzata la prima immagine, la variabile imgActive tornerà a puntare all'ultima immagine dell'array, consentendo una navigazione circolare all'indietro
+  if (imgActive < 0) { //Questa è una condizione che verifica se il valore della variabile è minore di zero
+    imgActive = images.length - 1 //se l'utente continua a premere il pulsante "precedente" quando si è già visualizzata la prima immagine, la variabile imgActive tornerà a puntare all'ultima immagine dell'array, consentendo una navigazione circolare all'indietro
   }
   itemDOMElements[imgActive].classList.add('active');
 })
