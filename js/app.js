@@ -23,8 +23,9 @@ const images = [  //-creare variabile//-assegnare valore variabile
 
 // DOM
 const containerDomElement = document.querySelector('.carousel-container');
-const buttonNextDomElement = document.querySelector('.next-button');
-const buttonPrevDomElement = document.querySelector('prev-button');
+// -creare variabile per sapere img attiva
+let imgActive = 0 //- assegnare variabile attiva //-partendo da zero let active = 0
+
 
 console.log(images.length);
 //-creare ciclo for 
@@ -47,11 +48,23 @@ for (let i = 0; i < images.length; i++) {
 const itemDOMElements = document.querySelector('carousel-image')
 console.log(itemDOMElements)
 
-// -creare variabile per sapere img attiva
-let imgActive = 1;//- assegnare variabile attiva //-partendo da zero let active = 0
 
 //-img nascoste
 //-la prima avrà una classe specifica per essere visualizzata
 let currentPic = itemDOMElements[imgActive]
 currentPic.classList.add('active')
-//-fare il click con le frecce per cambiare l'img con la classe
+
+//bottoni DOM 
+const buttonNextDomElement = document.querySelector('.next-button');
+const buttonPrevDomElement = document.querySelector('prev-button');
+
+//click bottoni
+buttonNextDomElement.addEventListener('click', function(){
+  console.log('click next')
+  console.log(itemDOMElements[imgActive + 1])
+})
+
+buttonPrevDomElement.addEventListener('click', function(){
+  console.log('click prev')
+  console.log(itemDOMElements[imgActive])
+})
