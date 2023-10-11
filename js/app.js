@@ -20,20 +20,17 @@ const images = [  //-creare variabile//-assegnare valore variabile
   "./img/05.webp"
 ]
 
-
-// DOM
+// recupero dal DOM il container del carosello
 const containerDomElement = document.querySelector('.carousel-container');
-
-
-
 console.log(images.length);
-//-creare ciclo for 
+
+//-creare ciclo for 0 < images.length (5) fin quando è minore il ciclo continua 
 for (let i = 0; i < images.length; i++) {
   // console.log(i)
-  let currentImg = images[i]
+  let currentImg = images[i] //assegno variabile per definire currentimg delle img del indiex
   console.log(currentImg);
 
-  // che concatena un template literal
+  // creo un template literal che sovrascrive il mio contenuto html aggiungengo anche una classe per le mie img
   const htmlString = `
   <div class="carousel-image"> 
     <img src="${currentImg}">
@@ -41,41 +38,42 @@ for (let i = 0; i < images.length; i++) {
   `
   console.log(htmlString);
 
-  containerDomElement.innerHTML += htmlString;
+   containerDomElement.innerHTML += htmlString; // aggiungo contenuto al mio inner html
 }
-// immgaini dal DOM 
+
+//assegno variabile per le img e le riprendo dal DOM  
 const itemDOMElements = document.querySelectorAll('.carousel-image')
 console.log(itemDOMElements)
 
-// -creare variabile per sapere img attiva
-let imgActive = 0 //- assegnare variabile attiva //-partendo da zero let active = 0
+//creare variabile 
+let imgActive = 0 //- assegnare variabile attiva partendo da zero (prima immagine)
 
-//-img nascoste
-//-la prima avrà una classe specifica per essere visualizzata
+//-img commentate tu html
+//alla prima img bisogna aggiungere la classe active
 let currentPic = itemDOMElements[imgActive]
 currentPic.classList.add('active')
 
-//bottoni DOM 
+//recupero bottoni DOM 
 const buttonNextDomElement = document.querySelector('.next-button');
 const buttonPrevDomElement = document.querySelector('.prev-button');
 
-//click bottoni
+//click bottoni prima rimuovo la classe attiva alla img
 buttonNextDomElement.addEventListener('click', function(){
   console.log('click next')
   itemDOMElements[imgActive].classList.remove('active');
-  imgActive++;
-  if(imgActive === images.length){
-    imgActive = 0
+  imgActive++; //incremento per selezionare l'img successiva
+  if(imgActive === images.length){ //la mia img attiva è uguale alla lunghezza del mio array
+    imgActive = 0 //img 1 + 1
   }
-  itemDOMElements[imgActive].classList.add('active');
+  itemDOMElements[imgActive].classList.add('active'); //aggiungo all'altra img la classe active
 })
 
-buttonPrevDomElement.addEventListener('click', function(){
+buttonPrevDomElement.addEventListener('click', function(){ //qui al contrario 
   console.log('click prev')
-  itemDOMElements[imgActive].classList.remove('active');
-  imgActive--;
-  if(imgActive < 0){
-    imgActive = images.length -1
+  itemDOMElements[imgActive].classList.remove('active'); //click bottoni prima rimuovo la classe attiva alla img
+  imgActive--; //decrementare per selezionare l'img precedente
+  if(imgActive < 0){ 
+    imgActive = images.length -1 
   }
   itemDOMElements[imgActive].classList.add('active');
 })
