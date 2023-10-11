@@ -23,8 +23,7 @@ const images = [  //-creare variabile//-assegnare valore variabile
 
 // DOM
 const containerDomElement = document.querySelector('.carousel-container');
-// -creare variabile per sapere img attiva
-let imgActive = 0 //- assegnare variabile attiva //-partendo da zero let active = 0
+
 
 
 console.log(images.length);
@@ -45,9 +44,11 @@ for (let i = 0; i < images.length; i++) {
   containerDomElement.innerHTML += htmlString;
 }
 // immgaini dal DOM 
-const itemDOMElements = document.querySelector('carousel-image')
+const itemDOMElements = document.querySelectorAll('.carousel-image')
 console.log(itemDOMElements)
 
+// -creare variabile per sapere img attiva
+let imgActive = 0 //- assegnare variabile attiva //-partendo da zero let active = 0
 
 //-img nascoste
 //-la prima avrà una classe specifica per essere visualizzata
@@ -56,15 +57,25 @@ currentPic.classList.add('active')
 
 //bottoni DOM 
 const buttonNextDomElement = document.querySelector('.next-button');
-const buttonPrevDomElement = document.querySelector('prev-button');
+const buttonPrevDomElement = document.querySelector('.prev-button');
 
 //click bottoni
 buttonNextDomElement.addEventListener('click', function(){
   console.log('click next')
-  console.log(itemDOMElements[imgActive + 1])
+  itemDOMElements[imgActive].classList.remove('active');
+  imgActive++;
+  if(imgActive === images.length){
+    imgActive = 0
+  }
+  itemDOMElements[imgActive].classList.add('active');
 })
 
 buttonPrevDomElement.addEventListener('click', function(){
   console.log('click prev')
-  console.log(itemDOMElements[imgActive])
+  itemDOMElements[imgActive].classList.remove('active');
+  imgActive--;
+  if(imgActive < 0){
+    imgActive = images.length -1
+  }
+  itemDOMElements[imgActive].classList.add('active');
 })

@@ -6,9 +6,11 @@
 
 img {
   width: 100%;
-}
+  }
 
-
+  .carousel-image{
+    display: none;
+  }
 
 .carousel-container {
   max-width: 600px;
@@ -36,4 +38,8 @@ img {
   position: absolute;
   top: 30px;
   left: 250px;
+}
+
+.active {
+  display: block;
 }
